@@ -1,0 +1,253 @@
+h1{
+  color:red;
+  text-align: center;
+}
+h2{
+  font-color: #0000ff;
+}
+/* --- Global Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.same{
+  font-palette: 25px;
+  font-weight: bold;
+}
+
+body {
+    background-color: #050E3C; /* Halka gray-blue background taaki card focus mein rahe */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern, clear font */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Main Card --- */
+.container {
+    background-color: #F8DE22;
+    width: 100%;
+    max-width: 650px; /* Card ki width control karne ke liye */
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Soft, natural shadow for depth */
+}
+
+/* --- Header --- */
+.mda-title {
+    color: #c0392b; /* A dark reddish tone */
+    font-size: 24px;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* --- Typography & Headings --- */
+h2, h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #0000ff;
+    
+}
+
+h2 { font-size: 20px; color: #444; }
+h3 { font-size: 18px; color: #555; }
+
+/* --- Input Grid System --- */
+.form-row {
+    display: flex;
+    gap: 20px; /* First & Last Name ke beech space */
+    margin-bottom: 15px;
+}
+
+.form-group {
+    flex: 1; /* Rows ko responsive banata hai */
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* --- Inputs & Select Styling --- */
+input[type="text"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #fdfdfd;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Focus and Active states --- */
+input:focus,
+select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+/* Adjustments for address input */
+.full-width-input {
+    grid-column: span 2;
+}
+
+/* --- Buttons --- */
+button {
+    padding: 10px;
+    font-size: 16px;
+    box-shadow: 0 4px 16px rgba(0,176,155,0.4);
+    background-color:  #2575FC;
+    color: yellow;
+    cursor: pointer;
+    border: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+}
+
+button:active {
+    transform: translateY(1px); /* Chhota effect click par */
+}
+
+/* Specific button styles */
+.confirm-btn {
+    background-color: #3498db; /* Professional Blue */
+    color: white;
+    padding: 10px 25px;
+    border-radius: 6px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.confirm-btn:hover {
+    background-color: #2980b9;
+}
+
+.payment-btn {
+    background-color: #27ae60; /* Green and bold for final steps */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 15px;
+    width: 100%; /* Pure payment container width */
+    margin-top: 15px;
+}
+
+.payment-btn:hover {
+    background-color: #219150;
+}
+
+.promo-btn {
+    background-color: #555;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 0 6px 6px 0; /* Left corners rounded nahi honge */
+    font-size: 14px;
+}
+
+.promo-btn:hover {
+    background-color: #333;
+}
+
+/* --- Payment Options --- */
+.payment-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+}
+
+.payment-option input[type="radio"] {
+    accent-color: #3498db; /* Modern style for radio buttons */
+}
+
+/* --- Discounts --- */
+.discounts-list {
+    background-color: #fdf5df; /* A very light, warn yellow tone for visibility */
+    border-left: 4px solid #f1c40f;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+}
+
+.discounts-list li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #7f6a3d;
+}
+
+/* --- Promo Input Field with Button --- */
+.promo-section {
+    display: flex;
+    margin-top: 15px;
+}
+
+.promo-section input {
+    flex-grow: 1;
+    border-radius: 6px 0 0 6px; /* Right corners rounded nahi honge */
+    border-right: none;
+}
+.cart-item{
+  margin-bottom: 20px;
+}
+
+.typing-3d {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2 5rem;
+    font-weight: bold;
+    color: #ff0000; /* Aapka pasandida red color */
+    
+    /* --- 3D Text Shadow --- */
+    text-shadow: 
+        1px 1px 0px #ffff00,
+        2px 2px 0px #ffff00,
+        3px 3px 0px #ffff00,
+        4px 4px 0px #ffff00,
+        5px 5px 10px rgba(225,225,0,0.3);
+
+    /* --- Animation Settings --- */
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #c0392b/*; 
+    
+    /*Cursor effect */
+    width: 0; /* Shuruat mein text hide rahega */
+    margin: 20px auto;
+    
+    /* Animation: 'typing' text dikhane ke liye, 'blink' cursor ke liye */
+    animation: 
+        typing 3.3s steps(32, end) forwards infinite alternate,
+        blink 0.75s step-end infinite;
+}
+
+/* Text ko ek-ek karke dikhane ka logic */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; } /* Text poora dikhega */
+}
+
+/* Cursor ko blink karane ka logic */
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: #c0392b; }
+}*/*/

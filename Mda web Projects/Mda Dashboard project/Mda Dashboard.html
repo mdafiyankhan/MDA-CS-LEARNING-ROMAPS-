@@ -1,0 +1,237 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">YOUR APP</div>
+        <nav>
+            <ul>
+                <li>📅</li>
+                <li>📊</li>
+                <li>👤</li>
+                <li>⚙️</li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+            <input type="text" placeholder="Search...">
+        </header>
+
+        <div class="alert">
+            Alert! You can hide me. <span class="close-btn">&times;</span>
+        </div>
+
+        <section class="traffic-card">
+            <h3>TRAFFIC</h3>
+            <canvas id="trafficChart"></canvas>
+        </section>
+
+        <div class="bottom-grids">
+            <div class="card">
+                <h3>DAILY TRAFFIC</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>MOBILE USERS</h3>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="Script.js"></script>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Dashboard</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        /* CSS Section: Design aur Layout */
+        body {
+            display: flex;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            height: 100vh;
+        }
+
+        /* Sidebar Design */
+        .sidebar {
+            width: 80px;
+            background-color: #484c7f;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            gap: 30px;
+        }
+
+        .logo { font-weight: bold; font-size: 12px; text-align: center; margin-bottom: 20px; }
+        .nav-icon { font-size: 24px; cursor: pointer; opacity: 0.7; transition: 0.3s; }
+        .nav-icon:hover { opacity: 1; }
+
+        /* Main Area */
+        .main-content {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            padding: 8px 15px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            width: 250px;
+        }
+
+        /* Purple Alert Box */
+        .alert-box {
+            background-color: #7b61ff;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .close-alert { cursor: pointer; font-weight: bold; }
+
+        /* Cards Layout */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 25px;
+        }
+
+        h3 { margin-top: 0; color: #555; font-size: 16px; letter-spacing: 1px; }
+
+        /* Responsive for Mobile */
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .sidebar { width: 60px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">YOUR<br>APP</div>
+        <div class="nav-icon">📅</div>
+        <div class="nav-icon">📈</div>
+        <div class="nav-icon">👥</div>
+        <div class="nav-icon">⚙️</div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h1>Dashboard</h1>
+            <input type="text" class="search-bar" placeholder="Search...">
+        </header>
+
+        <div class="alert-box" id="myAlert">
+            <span>Alert! You can hide me.</span>
+            <span class="close-alert" onclick="hideAlert()">×</span>
+        </div>
+
+        <div class="card">
+            <h3>TRAFFIC</h3>
+            <canvas id="mainTrafficChart" height="100"></canvas>
+        </div>
+
+        <div class="grid-container">
+            <div class="card">
+                <h3>DAILY TRAFFIC</h3>
+                <canvas id="dailyTrafficChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>MOBILE USERS</h3>
+                <canvas id="mobileUsersChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 1. Function to close the alert box
+        function hideAlert() {
+            document.getElementById('myAlert').style.display = 'none';
+        }
+
+        // 2. Main Line Chart (TRAFFIC)
+        const ctx1 = document.getElementById('mainTrafficChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'line',
+            data: {
+                labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17'],
+                datasets: [{
+                    label: 'Visits',
+                    data: [400, 1300, 1100, 2100, 1600, 1800, 1300, 1900, 2300],
+                    borderColor: '#7b61ff',
+                    backgroundColor: 'rgba(123, 97, 255, 0.1)',
+                    fill: true,
+                    tension: 0.4 // Smoothing the lines
+                }]
+            }
+        });
+
+        // 3. Bar Chart (DAILY TRAFFIC)
+        const ctx2 = document.getElementById('dailyTrafficChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                datasets: [{
+                    label: 'Traffic',
+                    data: [80, 110, 180, 130, 230, 210, 110],
+                    backgroundColor: '#484c7f'
+                }]
+            }
+        });
+
+        // 4. Pie Chart (MOBILE USERS)
+        const ctx3 = document.getElementById('mobileUsersChart').getContext('2d');
+        new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: ['Phones', 'Tablets', 'Desktop'],
+                datasets: [{
+                    data: [65, 15, 20],
+                    backgroundColor: ['#4bc0c0', '#ffcd56', '#7b61ff']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+GIT - It is a version control system which store any changes , recovery and updates etc  in our code .
+GIT HUB- It is a hosting platform which show our projects that we store in our git. We also live and public our projects using this github platform.
+--> It have also collaboration tools
+--> Backup and Deployment.
+--> Using centralized repository 
+
+REPOSITORY - Ye ek tarah ka folder hai jaha code push hokr aayega .
+
+>>>> step to push the code to github repo <<<<
+- git init
+- git add README.md
+- git commit -m "first commit"
+- git branch -M main 
+- git remote add origin https://github.com/mdafiyankhan/my repo name
+- git push -u origin main
+
+.git--> Ye hamare changes ko track krne ke liye ek by default folder save ho jata hai.
+
